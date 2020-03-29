@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>Curso Javascript</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>
+            <button onclick="mostraAlertaClick()">Me pressione</button>
+        </div>
+        <br>
+        <div>
+            <button onmouseover="mostraAlertaPassa()">Passe com o mouse</button>
+        </div>
+        <br>
+        <div>
+            <input onkeydown="mostraAlertaAntesDigitar()">
+        </div>
+        <br>
+        <div>
+            <input onkeypress="mostraAlertaAntesDigitar2()">
+        </div>
+        <br>
+        <div>
+            <input onkeyup="mostraAlertaAposDigitar()">
+        </div>
+        <br>
+        <div id="app">
+            <input type="text" name="nome" id="nome" class="nome">
+            <button class="botao">Adicionar</button>
+        </div>
+        <br>
+        <div id="apps">
+            <input id="tirar">
+        </div>
+        <br>
+        <div id="appss">
+            <div class="box"></div>
+        </div>
+        <script>
+
+            function mostraAlertaClick(){
+                alert('Botão foi clicado');//função global de alerta do javascript
+            }
+            function mostraAlertaPassa(){
+                alert('Mouse foi passado pelo botão');//função global de alerta do javascript
+            }
+            function mostraAlertaAntesDigitar(){
+                alert('Mostra o alerta ao digitar um algarismo na caixa de texto e ao apaga-lo');//função global de alerta do javascript
+            }
+            function mostraAlertaAntesDigitar2(){
+                alert('Mostra o alerta ao digitar um algarismo na caixa de texto, mas não mostra ao apaga-lo');//função global de alerta do javascript
+            }
+            function mostraAlertaAposDigitar(){
+                alert('Mostra o alerta apos digitar um algarismo na caixa de texto e ao apaga-lo');//função global de alerta do javascript
+            }
+            var inputElement = document.getElementById('nome');
+            var inputElement = document.getElementsByTagName('nome')[0];//com [0] chama o input na primeira posição no html, sem [] chama todos os inputs no html
+            var inputElement = document.getElementsByClassName('nome')[0];//é usado [] para indentificar qual input chamar ja que a mesma class pode ser usado em mais de uma input
+            var inputElement = document.querySelector('body div#app input[name=nome]');//esta sintaxe percorre a DOM e com algumas indicações identifica qual elemento ele quer e so passa um elemento
+            var inputElement = document.querySelectorAll('input');//esta sintaxe percorre a DOM e com algumas indicações identifica qual elemento ele quer e passa todos elemento
+        </script>
+        <script>
+            var inputElement = document.querySelector('input[name=nome');
+            var btnElement = document.querySelector('button.botao');
+            btnElement.onclick = function(){
+                var text = inputElement.value;
+                //alert('Botão clicado');
+                alert('Acabou de digitar ' + text);
+            }
+        </script>
+        <script>
+            //introduz um elemento com javascript
+            var linkElement = document.createElement('a');
+            linkElement.setAttribute('href', 'http://rocketseat.com.br');
+            linkElement.setAttribute('title', 'Site da Rocketseat');
+            var textElement = document.createTextNode('Acessar site da Rocketseat');
+            linkElement.appendChild(textElement);
+            var containerElement = document.querySelector('#apps');
+            containerElement.appendChild(linkElement);
+            //remove um elemento com javascript
+            var inputElement = document.querySelector('#tirar');
+            containerElement.removeChild(inputElement);
+        </script>
+        <script>
+            //estilizando um elemento com javascript
+            var boxElement = document.querySelector('.box');
+            boxElement.style.width = 100;
+            boxElement.style.height = 100;
+            boxElement.style.backgroundColor = '#f00';
+        </script>
+    </body>
+</html>
